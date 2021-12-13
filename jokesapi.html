@@ -69,7 +69,7 @@ Click here for the Answer:</summary><p> <b>Answer:</b> ${answer}</p>
 </details>`
                         document.querySelector('#basic').innerHTML = result;
                     } else {
-                        document.querySelector('#basic').innerHTML = 'Click new joke....';
+                        document.querySelector('#basic').innerHTML = `<div><i class="fas fa-info-circle"></i> Click new joke....</div>`;
                     }
                 })
                 .catch(error => {
