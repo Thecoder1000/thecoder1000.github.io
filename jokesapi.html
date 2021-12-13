@@ -59,23 +59,29 @@ body {
 
 <script>
         document.addEventListener('DOMContentLoaded', function jokes() {
-            fetch("https://v2.jokeapi.dev/joke/Any?safe-mode")
-            .then(function t(response){
-			      
-				     return response.json()
-				 
-                                     })
-            .then(function j(data) {
-		              	
-			           var question = data["setup"]
-				       var answer =   data["delivery"]
-					   
-                return document.querySelector('#basic').innerHTML = `${question}  <details><summary><i class="fas fa-arrow-right"></i>
+            fetch("https://v2.jokeapi.dev/joke/Any?safe-mode").then(response => response.json()).then(data => {
+                    
+                    const question = data["setup"]
+					const answer =   data["delivery"]
+                    if (question !== undefined) {
+                        const result = `${question}  <details><summary><i class="fas fa-arrow-right"></i>
 				
-Click here for the Answer:</summary>
-<p> <b>Answer:</b> ${answer}</p>
-</details>`})
-       });
+Click here for the Answer:</summary><p> <b>Answer:</b> ${answer}</p>
+</details>`
+                        document.querySelector('#basic').innerHTML = result;
+                    } else {
+                        document.querySelector('#basic').innerHTML = 'Click new joke....';
+                    }
+                })
+                .catch(error => {
+                    console.log('Error:', error);
+                });
+                return false;
+            })
+            
+				
+
+       ;
     </script>
   </head>
 <body>
@@ -91,4 +97,5 @@ Click here for the Answer:</summary>
 
     </body>
 </html>
+
 
