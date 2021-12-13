@@ -46,7 +46,7 @@ body {
 
       }
 	  
-	  #basic{
+       #basic{
 	  
 	  background-color:#9c9723
 	  
@@ -62,10 +62,9 @@ body {
             fetch("https://v2.jokeapi.dev/joke/Any?safe-mode").then(response => response.json()).then(data => {
                     
                     const question = data["setup"]
-					const answer =   data["delivery"]
+		    const answer = data["delivery"]
                     if (question !== undefined) {
-                        const result = `${question}  <details><summary><i class="fas fa-arrow-right"></i>
-				
+                        const result = `${question}  <details><summary><i class="fas fa-arrow-right"></i>		
 Click here for the Answer:</summary><p> <b>Answer:</b> ${answer}</p>
 </details>`
                         document.querySelector('#basic').innerHTML = result;
@@ -77,11 +76,9 @@ Click here for the Answer:</summary><p> <b>Answer:</b> ${answer}</p>
                     console.log('Error:', error);
                 });
                 return false;
-            })
-            
-				
-
-       ;
+            });
+           				
+       
     </script>
   </head>
 <body>
